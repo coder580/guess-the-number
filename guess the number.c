@@ -1,4 +1,4 @@
-  GNU nano 4.2                                                                                                 number combined.c                                                                                                            
+                                                                                           number combined.c                                                                                                            
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -67,7 +67,7 @@ int main()
         while (f==0)
         {
                 scanf("%d",&curguess);
-                if (asparagus>r)
+                if (curguess>r)
                 {
                         printf("Too high\n:");
                         tries++;
