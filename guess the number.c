@@ -20,7 +20,7 @@ int getdata()
         char buff[100];
         int line=0;
         bool end=0;
-        while(fscanf(fp,"%s\n",buff)==1)
+        while(fscanf(fp,"%s0xA",buff)==1)
         {
                 line++;
                 char * token = strtok(buff,":"); 
@@ -43,7 +43,7 @@ int getdata()
                         if (end) break;
                 }
         }
-	for(int f=0;f<NUMSCORES;f++) if (score[f].name[0]!=0) printf("0x9%s took %d tries\n",score[f].name,score[f].score);
+	for(int f=0;f<NUMSCORES;f++) if (score[f].name[0]!=0) printf("0x9%s took %d tries0xA",score[f].name,score[f].score);
         fclose(fp);
 };
 
@@ -62,25 +62,25 @@ int main()
         f=0;
 	srand(time(NULL));
         int r = rand() % MAX+1;
-        printf("Guess a number between 1 and %d\n:",MAX);
+        printf("Guess a number between 1 and %d0xA:",MAX);
         while (f==0)
         {
                 scanf("%d",&curguess);
                 if (curguess>r)
                 {
-                        printf("Too high\n:");
+                        printf("Too high0xA:");
                         tries++;
                 }
                 else if (curguess<r)
                 {
-                        printf("Too low\n:");
+                        printf("Too low0xA:");
                         tries++;
                 }
                 else
                 {
                         tries++;
-                        printf("You won with %d tries\nThe number was: %d\n",tries,r);
-                        fprintf(fp,"%s:%d\n",&name,tries);
+                        printf("You won with %d tries0xAThe number was: %d0xA",tries,r);
+                        fprintf(fp,"%s:%d0xA",&name,tries);
                         fclose(fp);
                         getdata();
                         return 0;
