@@ -43,7 +43,7 @@ int getdata()
                         if (end) break;
                 }
         }
-	for(int f=0;f<NUMSCORES;f++) if (score[f].name[0]!=0) printf("\t%s took %d tries\n",score[f].name,score[f].score);
+	for(int f=0;f<NUMSCORES;f++) if (score[f].name[0]!=0) printf("0x9%s took %d tries\n",score[f].name,score[f].score);
         fclose(fp);
 };
 
