@@ -20,7 +20,7 @@ int getdata()
         char buff[100];
         int line=0;
         bool end=0;
-        while(fscanf(fp,"%s0xA",buff)==1)
+        while(fscanf(fp,"%s\xA",buff)==1)
         {
                 line++;
                 char * token = strtok(buff,":"); 
@@ -62,25 +62,25 @@ int main()
         f=0;
 	srand(time(NULL));
         int r = rand() % MAX+1;
-        printf("Guess a number between 1 and %d0xA:",MAX);
+        printf("Guess a number between 1 and %d\xA:",MAX);
         while (f==0)
         {
                 scanf("%d",&curguess);
                 if (curguess>r)
                 {
-                        printf("Too high0xA:");
+                        printf("Too high\xA:");
                         tries++;
                 }
                 else if (curguess<r)
                 {
-                        printf("Too low0xA:");
+                        printf("Too low\xA:");
                         tries++;
                 }
                 else
                 {
                         tries++;
-                        printf("You won with %d tries0xAThe number was: %d0xA",tries,r);
-                        fprintf(fp,"%s:%d0xA",&name,tries);
+                        printf("You won with %d tries\xAThe number was: %d\xA",tries,r);
+                        fprintf(fp,"%s:%d\xA",&name,tries);
                         fclose(fp);
                         getdata();
                         return 0;
